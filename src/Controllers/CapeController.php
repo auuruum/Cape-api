@@ -36,7 +36,10 @@ class CapeController extends Controller
         }
 
         return response()->file($capeFile, [
-            'Content-Type' => 'image/png'
+            'Content-Type' => 'image/png',
+            'Cache-Control' => 'no-cache, no-store, must-revalidate',
+            'Pragma' => 'no-cache',
+            'Expires' => '0'
         ]);
     }
 

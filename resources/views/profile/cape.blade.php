@@ -18,7 +18,10 @@
                         <h4>{{ trans('cape-api::messages.profile.current') }}</h4>
                         <img src="{{ route('cape-api.profile.cape.show', ['user' => auth()->user()->id]) }}" 
                              alt="Current cape" 
-                             class="img-fluid">
+                             class="img-fluid"
+                             width="384"
+                             height="192"
+                             style="image-rendering: pixelated;">
                     </div>
                 @endif
 

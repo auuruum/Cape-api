@@ -1,0 +1,26 @@
+.cape-preview {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cape-preview img {
+    image-rendering: pixelated;
+    width: 384px; /* 6x original size (64px) */
+    height: 192px; /* 6x original size (32px) */
+    border: 1px solid #dee2e6;
+    background: repeating-conic-gradient(#808080 0% 25%, transparent 0% 50%) 
+                50% / 20px 20px;
+}
+
+/* Dark theme support */
+[data-bs-theme="dark"] .cape-preview {
+    background-color: #212529;
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .cape-preview img {
+    border-color: #495057;
+}
