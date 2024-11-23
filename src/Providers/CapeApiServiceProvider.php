@@ -57,7 +57,7 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
     {
         return [
             'cape-api' => [
-                'name' => 'cape-api',
+                'name' => 'Cape-API',
                 'title' => trans('cape-api::admin.title'),
                 'icon' => 'bi bi-gear',
                 'route' => 'cape-api.admin.settings',

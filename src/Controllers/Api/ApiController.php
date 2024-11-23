@@ -25,8 +25,9 @@ class ApiController extends Controller
      */
     public function getCape($identifier)
     {
-        // Sanitize the identifier
+        // Sanitize the identifier and remove file extension
         $identifier = trim($identifier);
+        $identifier = preg_replace('/\.[^.]*$/', '', $identifier);
 
         // Validate identifier format
         if (empty($identifier)) {

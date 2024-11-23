@@ -2,6 +2,10 @@
 
 @section('title', trans('cape-api::messages.profile.title'))
 
+@push('scripts')
+    <script src="{{ plugin_asset('cape-api', 'js/cape-upload.js') }}"></script>
+@endpush
+
 @section('content')
     <div class="container content">
         <div class="card shadow-sm">
@@ -10,7 +14,7 @@
             </div>
             <div class="card-body">
                 @if($hasCape)
-                    <div class="text-center mb-4">
+                    <div class="text-center mb-4 cape-preview">
                         <h4>{{ trans('cape-api::messages.profile.current') }}</h4>
                         <img src="{{ route('cape-api.profile.cape.show', ['user' => auth()->user()->id]) }}" 
                              alt="Current cape" 

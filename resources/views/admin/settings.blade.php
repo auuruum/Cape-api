@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', 'Cape-Api Settings')
+@section('title', 'Cape-API Settings')
 
 @section('content')
     <div class="card shadow mb-4">
@@ -28,20 +28,6 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label class="form-label" for="heightInput">Height</label>
-                            <input type="number" class="form-control @error('height') is-invalid @enderror" 
-                                id="heightInput" name="height" 
-                                value="{{ old('height', $settings['height']) }}"
-                                min="1">
-
-                            @error('height')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="mb-3">
                             <label class="form-label" for="widthInput">Width</label>
                             <input type="number" class="form-control @error('width') is-invalid @enderror" 
                                 id="widthInput" name="width" 
@@ -49,6 +35,20 @@
                                 min="1">
 
                             @error('width')
+                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label" for="heightInput">Height</label>
+                            <input type="number" class="form-control @error('height') is-invalid @enderror" 
+                                id="heightInput" name="height" 
+                                value="{{ old('height', $settings['height']) }}"
+                                min="1">
+
+                            @error('height')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>

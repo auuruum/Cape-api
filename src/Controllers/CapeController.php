@@ -64,17 +64,17 @@ class CapeController extends Controller
         $height = (int) setting('cape-api.height', self::DEFAULT_HEIGHT);
 
         if (!$request->hasFile('cape')) {
-            return redirect()->back()->withErrors([
-                'cape' => trans('cape-api::messages.profile.upload.invalid')
-            ]);
+            return $request->ajax() 
+                ? response()->json(['success' => false, 'message' => trans('cape-api::messages.profile.upload.invalid')])
+                : redirect()->back()->withErrors(['cape' => trans('cape-api::messages.profile.upload.invalid')]);
         }
 
         $file = $request->file('cape');
 
         if (!$file->isValid()) {
-            return redirect()->back()->withErrors([
-                'cape' => trans('cape-api::messages.profile.upload.invalid')
-            ]);
+            return $request->ajax()
+                ? response()->json(['success' => false, 'message' => trans('cape-api::messages.profile.upload.invalid')])
+                : redirect()->back()->withErrors(['cape' => trans('cape-api::messages.profile.upload.invalid')]);
         }
 
         // Validate file type and size
@@ -94,12 +94,13 @@ class CapeController extends Controller
             // Check image dimensions
             $imageInfo = getimagesize($tempPath);
             if ($imageInfo === false || $imageInfo[0] !== $width || $imageInfo[1] !== $height) {
-                return redirect()->back()->withErrors([
-                    'cape' => trans('cape-api::messages.profile.upload.dimensions', [
-                        'width' => $width,
-                        'height' => $height
-                    ])
+                $message = trans('cape-api::messages.profile.upload.dimensions', [
+                    'width' => $width,
+                    'height' => $height
                 ]);
+                return $request->ajax()
+                    ? response()->json(['success' => false, 'message' => $message])
+                    : redirect()->back()->withErrors(['cape' => $message]);
             }
 
             // Manually copy the file to the storage location
@@ -122,8 +123,11 @@ class CapeController extends Controller
                 throw new \Exception('File was not saved successfully');
             }
 
-            return redirect()->back()
-                ->with('success', trans('cape-api::messages.profile.upload.success'));
+            $message = trans('cape-api::messages.profile.upload.success');
+            return $request->ajax()
+                ? response()->json(['success' => true, 'message' => $message])
+                : redirect()->back()->with('success', $message);
+
         } catch (\Exception $e) {
             Log::error('Cape upload failed', [
                 'error' => $e->getMessage(),
@@ -131,8 +135,10 @@ class CapeController extends Controller
                 'temp_path' => $tempPath ?? 'N/A'
             ]);
 
-            return redirect()->back()
-                ->withErrors(['cape' => trans('cape-api::messages.profile.upload.error')]);
+            $message = trans('cape-api::messages.profile.upload.error');
+            return $request->ajax()
+                ? response()->json(['success' => false, 'message' => $message])
+                : redirect()->back()->withErrors(['cape' => $message]);
         }
     }
 
