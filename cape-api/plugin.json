@@ -1,0 +1,15 @@
+{
+    "id": "cape-api",
+    "name": "cape-api",
+    "description": "Plugin for Azuriom",
+    "version": "1.0.0",
+    "url": "https://azuriom.com",
+    "authors": [
+        "aurum"
+    ],
+    "azuriom_api": "1.1.0",
+    "providers": [
+        "\\Azuriom\\Plugin\\CapeApi\\Providers\\CapeApiServiceProvider",
+        "\\Azuriom\\Plugin\\CapeApi\\Providers\\RouteServiceProvider"
+    ]
+}
