@@ -4,6 +4,8 @@ namespace Azuriom\Plugin\CapeApi\Providers;
 
 use Azuriom\Extensions\Plugin\BasePluginServiceProvider;
 use Azuriom\Models\Permission;
+use Azuriom\Plugin\CapeApi\Cards\ChangeCapeViewCard;
+use Illuminate\Support\Facades\View;
 
 class CapeApiServiceProvider extends BasePluginServiceProvider
 {
@@ -34,6 +36,8 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
         Permission::registerPermissions([
             'admin.cape-api' => 'cape-api::admin.permissions.admin',
         ]);
+
+        View::composer('profile.index', ChangeCapeViewCard::class);
     }
 
     /**
