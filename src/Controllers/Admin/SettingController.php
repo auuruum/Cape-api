@@ -16,6 +16,7 @@ class SettingController extends Controller
                 'width' => setting('cape-api.width', 64),
                 'icon' => setting('cape-api.icon', 'bi bi-person-circle'),
                 'show_cape' => setting('cape-api.show_cape', true),
+                'show_in_profile' => setting('cape-api.show_in_profile', true),
             ]
         ]);
     }
@@ -26,7 +27,6 @@ class SettingController extends Controller
             'height' => 'required|integer|min:1|max:1024',
             'width' => 'required|integer|min:1|max:1024',
             'icon' => 'nullable|string|max:50',
-            'show_cape' => 'boolean',
         ]);
 
         // Save settings using Setting model
@@ -34,7 +34,8 @@ class SettingController extends Controller
             'cape-api.height' => (int) $validated['height'],
             'cape-api.width' => (int) $validated['width'],
             'cape-api.icon' => $validated['icon'] ?? '',
-            'cape-api.show_cape' => (bool) ($validated['show_cape'] ?? false),
+            'cape-api.show_cape' => $request->has('show_cape'),
+            'cape-api.show_in_profile' => $request->has('show_in_profile'),
         ]);
 
         return redirect()->route('cape-api.admin.settings')
