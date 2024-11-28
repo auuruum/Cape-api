@@ -9,10 +9,17 @@
         </div>
         <div class="card-body">
             <div class="alert alert-info">
-                <h5 class="alert-heading">API Endpoint</h5>
+                <h5 class="alert-heading">API Endpoints</h5>
+                <p class="mb-2">Using User ID:</p>
                 <code>GET {{ url('/api/cape-api/cape/{user_id}') }}</code>
+                <p class="mt-2 mb-2">Using Username:</p>
+                <code>GET {{ url('/api/cape-api/cape/name/{username}') }}</code>
                 <hr>
-                <p class="mb-0">Replace <code>{user_id}</code> with the actual user ID to get their cape.</p>
+                <p class="mb-0">You can use either:</p>
+                <ul class="mb-0">
+                    <li>Replace <code>{user_id}</code> with the user's ID number</li>
+                    <li>Replace <code>{username}</code> with the user's username</li>
+                </ul>
             </div>
         </div>
     </div>
