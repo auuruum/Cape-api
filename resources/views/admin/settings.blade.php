@@ -66,9 +66,9 @@
                     <label class="form-label" for="iconInput">{{ trans('cape-api::admin.dimensions.icon') }}</label>
                     <input type="text" class="form-control @error('icon') is-invalid @enderror" 
                         id="iconInput" name="icon" 
-                        value="{{ old('icon', $settings['icon']) }}"
-                        placeholder="bi bi-person-circle">
+                        value="{{ old('icon', $settings['icon']) }}">
                     <small class="form-text">{!! trans('cape-api::admin.dimensions.icon_hint') !!}</small>
+                    <small class="form-text d-block">{{ trans('cape-api::admin.dimensions.icon_optional') }}</small>
 
                     @error('icon')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

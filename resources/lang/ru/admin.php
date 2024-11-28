@@ -27,5 +27,6 @@ return [
         'height' => 'Высота',
         'icon' => 'Иконка навигации',
         'icon_hint' => 'Введите класс иконки Bootstrap (например, bi bi-person-circle). Вы можете найти иконки на <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a>',
+        'icon_optional' => 'Оставьте пустым, чтобы скрыть иконку навигации',
     ],
 ];

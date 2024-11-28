@@ -27,5 +27,6 @@ return [
         'height' => 'Height',
         'icon' => 'Navigation Icon',
         'icon_hint' => 'Enter a Bootstrap icon class (e.g., bi bi-person-circle). You can find icons at <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a>',
+        'icon_optional' => 'Leave empty to hide the navigation icon',
     ],
 ];

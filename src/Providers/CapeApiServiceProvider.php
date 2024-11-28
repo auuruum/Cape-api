@@ -58,7 +58,6 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
         return [
             'cape-api' => [
                 'name' => trans('cape-api::admin.title'),
-                'title' => trans('cape-api::admin.description'),
                 'icon' => 'bi bi-gear',
                 'route' => 'cape-api.admin.settings',
                 'permission' => 'admin.cape-api',
@@ -73,13 +72,19 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
      */
     protected function userNavigation()
     {
-        return [
+        $navigation = [
             'cape' => [
                 'name' => trans('cape-api::messages.title'),
-                'title' => trans('cape-api::messages.description'),
-                'icon' => setting('cape-api.icon', 'bi bi-person-circle'),
                 'route' => 'cape-api.cape',
+                'icon' => ' ', // Empty space as icon to override default bullet
             ],
         ];
+
+        $icon = setting('cape-api.icon');
+        if (!empty($icon)) {
+            $navigation['cape']['icon'] = $icon;
+        }
+
+        return $navigation;
     }
 }
