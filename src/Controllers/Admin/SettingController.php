@@ -14,7 +14,7 @@ class SettingController extends Controller
             'settings' => [
                 'height' => setting('cape-api.height', 32),
                 'width' => setting('cape-api.width', 64),
-                'icon' => setting('cape-api.icon', ''),
+                'icon' => setting('cape-api.icon', 'bi bi-person-circle'),
                 'show_cape' => setting('cape-api.show_cape', true),
             ]
         ]);
