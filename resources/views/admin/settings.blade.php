@@ -63,12 +63,16 @@
                 </div>
 
                 <div class="mb-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="showCapeInput" name="show_cape" 
-                            value="1" {{ old('show_cape', $settings['show_cape']) ? 'checked' : '' }}>
-                        <label class="form-check-label" for="showCapeInput">
-                            {{ trans('cape-api::admin.settings.show_cape') }}
-                        </label>
+                    <div class="form-check form-switch">
+                        <input type="checkbox" class="form-check-input" id="showCapeInput" name="show_cape" value="1" @checked($settings['show_cape'])>
+                        <label class="form-check-label" for="showCapeInput">{{ trans('cape-api::admin.settings.show_cape') }}</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check form-switch">
+                        <input type="checkbox" class="form-check-input" id="showInProfileInput" name="show_in_profile" value="1" @checked($settings['show_in_profile'])>
+                        <label class="form-check-label" for="showInProfileInput">{{ trans('cape-api::admin.settings.show_in_profile') }}</label>
                     </div>
                 </div>
 

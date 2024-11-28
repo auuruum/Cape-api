@@ -12,6 +12,7 @@ return [
         'height' => 'Height',
         'save' => 'Save Settings',
         'show_cape' => 'Show Cape button in navigation',
+        'show_in_profile' => 'Show Cape in Profile',
     ],
     'api' => [
         'title' => 'API Information',
