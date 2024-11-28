@@ -55,6 +55,19 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-label" for="iconInput">Navigation Icon</label>
+                    <input type="text" class="form-control @error('icon') is-invalid @enderror" 
+                        id="iconInput" name="icon" 
+                        value="{{ old('icon', $settings['icon']) }}"
+                        placeholder="bi bi-person-circle">
+                    <small class="form-text">Enter a Bootstrap icon class (e.g., bi bi-person-circle). You can find icons at <a href="https://icons.getbootstrap.com/" target="_blank">Bootstrap Icons</a></small>
+
+                    @error('icon')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
+                </div>
+
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-save"></i> {{ trans('messages.actions.save') }}
                 </button>
