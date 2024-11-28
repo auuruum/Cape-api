@@ -20,7 +20,6 @@ Route::get('/', [CapeController::class, 'home'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('profile')->name('profile.')->group(function () {
-        Route::get('/cape', [CapeController::class, 'show'])->name('cape');
         Route::post('/cape/upload', [CapeController::class, 'upload'])->name('cape.upload');
         Route::delete('/cape/delete', [CapeController::class, 'delete'])->name('cape.delete');
         

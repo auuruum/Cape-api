@@ -155,11 +155,11 @@ class CapeController extends Controller
         // Delete the cape if it exists
         if (Storage::exists('public/capes/' . $user->id . '.png')) {
             Storage::delete('public/capes/' . $user->id . '.png');
-            return redirect()->route('cape-api.profile.cape')
+            return redirect()->route('cape-api.cape')
                 ->with('success', trans('cape-api::messages.profile.delete.success'));
         }
 
-        return redirect()->route('cape-api.profile.cape')
+        return redirect()->route('cape-api.cape')
             ->with('error', trans('cape-api::messages.profile.delete.error'));
     }
 }

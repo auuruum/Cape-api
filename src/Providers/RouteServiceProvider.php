@@ -12,6 +12,11 @@ class RouteServiceProvider extends BaseRouteServiceProvider
      */
     public function loadRoutes(): void
     {
+        // Add the special /cape route without plugin prefix
+        Route::middleware(['web', 'auth'])
+            ->get('/cape', [\Azuriom\Plugin\CapeApi\Controllers\CapeController::class, 'show'])
+            ->name($this->plugin->id.'.cape');
+
         Route::middleware('web')
             ->prefix($this->plugin->id)
             ->name($this->plugin->id.'.')

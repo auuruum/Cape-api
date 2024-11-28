@@ -44,7 +44,7 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
     protected function routeDescriptions()
     {
         return [
-            'cape-api.profile.cape' => 'Cape Management',
+            'cape-api.cape' => 'Cape Management',
         ];
     }
 
@@ -78,7 +78,7 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
                 'name' => 'Cape',
                 'title' => trans('cape-api::messages.title'),
                 'icon' => setting('cape-api.icon', 'bi bi-person-circle'),
-                'route' => 'cape-api.profile.cape',
+                'route' => 'cape-api.cape',
             ],
         ];
     }
