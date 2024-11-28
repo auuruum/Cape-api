@@ -1,5 +1,13 @@
-API :
+# API Endpoints
 
-GET `/api/cape-api/cape/{user_id or nickname}`
+**Using User ID:**
+`GET {{ url('/api/cape-api/cape/{user_id}') }}`
 
-The user, if connected, can update his skin if he navigates to `/cape-api/profile/cape`
+**Using Username:**
+`GET {{ url('/api/cape-api/cape/name/{username}') }}`
+
+---
+
+You can use either:
+- Replace `{user_id}` with the user's ID number
+- Replace `{username}` with the user's username
