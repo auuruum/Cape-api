@@ -63,6 +63,16 @@
                 </div>
 
                 <div class="mb-3">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="showCapeInput" name="show_cape" 
+                            value="1" {{ old('show_cape', $settings['show_cape']) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="showCapeInput">
+                            {{ trans('cape-api::admin.settings.show_cape') }}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label" for="iconInput">{{ trans('cape-api::admin.dimensions.icon') }}</label>
                     <input type="text" class="form-control @error('icon') is-invalid @enderror" 
                         id="iconInput" name="icon" 

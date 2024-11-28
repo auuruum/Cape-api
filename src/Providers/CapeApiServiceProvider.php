@@ -72,11 +72,16 @@ class CapeApiServiceProvider extends BasePluginServiceProvider
      */
     protected function userNavigation()
     {
+        // Check if cape navigation is enabled
+        if (!setting('cape-api.show_cape', true)) {
+            return [];
+        }
+
         $navigation = [
             'cape' => [
                 'name' => trans('cape-api::messages.title'),
                 'route' => 'cape-api.cape',
-                'icon' => ' ', // Empty space as icon to override default bullet
+                'icon' => ' ',
             ],
         ];
 

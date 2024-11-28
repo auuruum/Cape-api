@@ -11,6 +11,7 @@ return [
         'width' => 'Width',
         'height' => 'Height',
         'save' => 'Save Settings',
+        'show_cape' => 'Show Cape button in navigation',
     ],
     'api' => [
         'title' => 'API Information',
